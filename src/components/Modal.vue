@@ -22,12 +22,14 @@
                                 <img :src="product.picture" height="150" width="150">
                             </div>
                             <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <strong>Burger obsahuje:</strong>
+                                    </div>
+                                </div>
                                 <div class="row" v-for="ingredient in product.ingredients" :key="ingredient.id">
                                     <div class="col">
                                         {{ returnIngredient(ingredient) }}
-                                    </div>
-                                    <div class="col">
-                                        <button class="btn btn-primary">-</button>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +69,8 @@
         },
         methods: {
             addToCart: function(product){
-                this.$store.commit('addToCart', product);
+                this.$store.commit('addToCart', {'product': product, 'amount': this.productQuantity});
+
                 $("#productModal").modal('hide');
             },
             returnIngredient(ingredientId){

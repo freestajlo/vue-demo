@@ -14,19 +14,22 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
-    addToCart(state, product){
+    addToCart(state, payload){
 
+      let product = payload.product;
       let found = state.cart.find(item => item.id == product.id);
 
       if(found){
-        found.quantity++;
-        found.totalPrice = found.quantity * found.price;
+        let amount = parseInt(found.quantity);
+        amount += parseInt(payload.amount);
+        found.quantity = amount;
+        found.totalPrice += product.price * payload.amount;
       }
       else{
         state.cart.push(product);
 
-        Vue.set(product, 'quantity', 1);
-        Vue.set(product, 'totalPrice', product.price);
+        Vue.set(product, 'quantity', payload.amount);
+        Vue.set(product, 'totalPrice', product.price * payload.amount);
       }
 
       this.commit('saveCart');
