@@ -23,7 +23,7 @@
             </div>
         </div>
         <div v-else>
-            <strong><p>Váš košík je prázdný</p></strong>
+            <strong>Váš košík je prázdný</strong>
             <router-link to="/"><button class="btn btn-error">Přejít na katalog produktů</button></router-link>
         </div>
     </div>

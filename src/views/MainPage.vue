@@ -4,7 +4,7 @@
         <h1>Hlavní nabídka</h1>
         <hr>
         <div class="row">
-            <div v-for="product in products" :key=product.name class="col-4 mb-4">
+            <div v-for="product in $store.state.products" :key=product.name class="col-4 mb-4">
                 <div class="card" @click="openModal(product.id)">
                     <img class="card-img-top" :src="product.picture">
                     <div class="card-body text-center">

@@ -9,10 +9,19 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'products' }">Nabídka</router-link>
+                        <router-link class="nav-link" :to="{ name: 'products' }">Nabídka |</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'cart' }">Košík</router-link>
+                        <router-link class="nav-link" :to="{ name: 'cart' }">Košík |</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'test' }">Překlikávání radio buttonů |</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'test2' }">Dynamické generování formů |</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{ name: 'test3' }">Cross component validace</router-link>
                     </li>
                 </ul>
             </div>
