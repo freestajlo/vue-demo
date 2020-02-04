@@ -5,7 +5,7 @@
                 <h1>Cross Component Validation</h1>
             </div>
         </div>
-        <div class="row">
+        <div v-if="$store.getters.proportionsError" class="row">
             <div class="col">
                 <div class="alert alert-danger" role="alert">
                     Rozměry musí být v rozmezí!
@@ -48,9 +48,8 @@
         },
         data() {
             return {
-                height: 0,
-                width: 0,
-                error: false
+                height: 1200,
+                width: 1400,
             }
         },
         computed: {
@@ -64,20 +63,18 @@
         watch: {
             height: function (val) {
                 if(val >= this.getHeight.min && val <= this.getHeight.max){
-                    window.console.log("setting proportions");
-                    this.error = false;
+                    this.$store.state.proportions.error = false;
                 }
                 else{
-                    this.error = true;
+                    this.$store.state.proportions.error = true;
                 }
             },
             width: function (val) {
                 if(val >= this.getWidth.min && val <= this.getWidth.max){
-                    window.console.log("setting proportions");
-                    this.error = false;
+                    this.$store.state.proportions.error = false;
                 }
                 else{
-                    this.error = true;
+                    this.$store.state.proportions.error = true;
                 }
             }
         }

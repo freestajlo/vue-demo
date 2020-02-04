@@ -89,12 +89,14 @@ export default new Vuex.Store({
     },
     proportions: {
       height: '',
-      width: ''
+      width: '',
+      error: false
     }
   },
   getters: {
     getDoorsMinMaxHeightProportions: state => state.doorsMaxMinProportions.height,
-    getDoorsMinMaxWidthProportions: state => state.doorsMaxMinProportions.width
+    getDoorsMinMaxWidthProportions: state => state.doorsMaxMinProportions.width,
+    proportionsError: state => state.proportions.error
   },
   mutations: {
     addToCart(state, payload){

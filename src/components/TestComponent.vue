@@ -63,15 +63,42 @@
 
             </div>
         </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                Text1 <input id="inp1" type="text">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                Text2 <input id="inp2" type="text">
+            </div>
+        </div>
+
     </div>
 </template>
 
 <script>
+
+    var input1 = document.getElementById('inp1');
+    input1.onkeyup(function(ev){
+
+    });
+    if(input1.value.length <= 2){
+        input1.setCustomValidity("You must enter more then 2chars into input");
+        input1.reportValidity();
+    }
+
     export default{
         name: "TestComponent",
         data(){
             return {
                 conditionSelected: 1
+            }
+        },
+        methods: {
+            validate: function(){
+
             }
         }
     }
